@@ -1,0 +1,31 @@
+:root {
+  /* Light theme */
+  --bg: #e9ebf0;
+  --bg-2: #f3f4f7;
+  --fog-cool: #c6ccd8;
+
+  --orange: #ea5b29;
+  --orange-soft: #ff7a45;
+  --orange-glow: rgba(234, 91, 41, 0.35);
+  --gold: #c9962f;
+
+  --glass: rgba(255, 255, 255, 0.5);
+  --glass-strong: rgba(255, 255, 255, 0.66);
+  --glass-border: rgba(20, 22, 34, 0.1);
+
+  --text: #131318;
+  --text-2: #5b5d6a;
+  --text-muted: rgba(19, 19, 24, 0.4);
+
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --maxw: 88rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --z-canvas: 1;
+  --z-branches: 2;
+  --z-content: 3;
+  --z-chrome: 40;
+}

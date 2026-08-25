@@ -1,0 +1,123 @@
+{
+  "theme_and_art_direction": {
+    "concept": "Industrial Glassmorphism & Liquid Fog",
+    "description": "A premium, Godly-website level scrollytelling experience. The ПНДВ4 converter sits in the center of a void, surrounded by volumetric liquid glass fog. As the user scrolls, the monolithic black and gold 3D converter rotates, acting as the anchor. PCB-trace-like glowing orange branches shoot out from specific pins/surfaces of the 3D model to connect to floating frosted-glass data cards. It feels technical, highly reliable, and cinematic.",
+    "vibe": "Elite engineering, aerospace-grade reliability, mysterious but precise.",
+    "primary_focus": "The 3D converter is the absolute hero. Minimal text, maximum sensory impact."
+  },
+  "typography": {
+    "pairing_strategy": "The 'Brutal Tech' pairing. Unbounded provides a wide, striking, aerospace-technical feel for numbers and big statements. Manrope provides extreme clarity for dense technical specs.",
+    "heading_font": {
+      "family": "'Unbounded', sans-serif",
+      "usage": "H1, Chapter Numbers, Massive Metric Data (e.g., '15 ЛЕТ')",
+      "weights": [300, 900],
+      "letter_spacing": "tracking-tight to tracking-tighter"
+    },
+    "body_font": {
+      "family": "'Manrope', sans-serif",
+      "usage": "Specs, body text, UI labels, Callout descriptions",
+      "weights": [400, 600],
+      "letter_spacing": "normal"
+    },
+    "hierarchy": {
+      "h1_hero": "text-5xl lg:text-6xl+ font-black tracking-tighter uppercase",
+      "chapter_number": "text-[8vw] leading-none font-black opacity-10",
+      "callout_value": "text-4xl font-black text-[#EA5B29]",
+      "callout_label": "text-xs font-bold tracking-[0.2em] uppercase text-[#8A8A8E]",
+      "body_text": "text-base font-light text-[#EDEDED] leading-relaxed"
+    }
+  },
+  "colors": {
+    "background": {
+      "void": "#070709",
+      "fog_light": "rgba(255, 255, 255, 0.05)",
+      "fog_dense": "rgba(7, 7, 9, 0.8)"
+    },
+    "accent": {
+      "brand_orange": "#EA5B29",
+      "orange_glow": "rgba(234, 91, 41, 0.4)",
+      "gold_pins": "#D4AF37"
+    },
+    "surface": {
+      "glass_panel": "rgba(255, 255, 255, 0.03)",
+      "glass_border": "rgba(255, 255, 255, 0.1)"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#8A8A8E",
+      "muted": "rgba(255, 255, 255, 0.3)"
+    }
+  },
+  "layout_and_spacing": {
+    "structure": "Single-page scrollytelling. Fixed Three.js canvas in the background. Absolute positioned SVG overlay for branch lines. Scrollable invisible sections that trigger GSAP animations.",
+    "container": "w-full max-w-7xl mx-auto px-6 lg:px-12",
+    "spacing_scale": "Exaggerated. Use h-[150vh] or h-[200vh] per scroll chapter to ensure slow, deliberate rotations.",
+    "callout_placement": "Alternating asymmetry. Chapter 1: Bottom Left. Chapter 2: Top Right. Chapter 3: Center Left. Never perfectly mirrored. Allow the 3D model to breathe in the negative space."
+  },
+  "components": {
+    "glass_callout_card": {
+      "html_structure": "Vanilla div with Tailwind/CSS classes.",
+      "styles": "backdrop-blur-xl backdrop-saturate-150 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.08)] p-8 max-w-sm rounded-none",
+      "internal_layout": "Flex column, gap-2. Overline label (uppercase, tracked out), huge accent value (Unbounded), description text (Manrope)."
+    },
+    "connector_branches": {
+      "description": "Rigid, PCB-trace style lines (90-degree angles, no soft curves) connecting the 3D model to the HTML cards.",
+      "styles": "SVG <path> with stroke='#EA5B29' stroke-width='1.5' fill='none'. Add an SVG <circle> at the anchor point on the model.",
+      "behavior": "Coordinates calculated via Three.js Vector3.project(camera) to map 3D anchor points to 2D screen space in real-time."
+    }
+  },
+  "motion_and_gsap": {
+    "global": "Lenis for smooth scrolling is MANDATORY. Without it, ScrollTrigger feels choppy.",
+    "hero_reveal": "Kinetic on-load mask reveal. GSAP clip-path animation for text (line-by-line). The liquid fog parts, and the 3D converter scales up from 0.8 to 1 with an ease of 'power4.out'.",
+    "scroll_choreography": {
+      "model_rotation": "gsap.to(model.rotation, { x: ..., y: ..., z: ..., scrollTrigger: { trigger: '#section-1', scrub: 1 } })",
+      "branches": "Use GSAP DrawSVG (or stroke-dashoffset) to animate the lines shooting out from the model as the section enters the viewport.",
+      "cards": "gsap.from(card, { y: 40, opacity: 0, backdropFilter: 'blur(0px)', duration: 1, scrollTrigger: { toggleActions: 'play reverse play reverse' } })"
+    }
+  },
+  "threejs_3d_execution": {
+    "model_construction": "Since it's vanilla JS/Three.js, build the ПНДВ4 converter using primitives (BoxGeometry for the black body, CylinderGeometry for the gold pins) if no GLTF is provided. Group them.",
+    "materials": "MeshPhysicalMaterial for ultimate realism. Body: color '#111', roughness 0.7, metalness 0.2. Pins: color '#D4AF37', roughness 0.2, metalness 1.0. Logo: add an orange decal or separate geometry for the running man.",
+    "environment": "Liquid glass fog. Implement via volumetric shaders OR, simpler: multiple overlapping planes with custom simplex noise shaders placed around the model. Slow time-based uniforms to make the fog 'breathe'.",
+    "lighting": "High contrast. RectAreaLights or SpotLights to create dramatic reflections on the metallic pins and the matte black casing."
+  },
+  "content_mapping": {
+    "chapter_0_hero": {
+      "title": "ПНДВ4",
+      "subtitle": "Высоконадежные DC/DC преобразователи для ответственных сфер применений."
+    },
+    "chapter_1_power": {
+      "label": "Мощность",
+      "value": "4 Вт",
+      "desc": "Типовой КПД до 80%. Работа в режиме холостого хода. Полный комплекс встроенных защит."
+    },
+    "chapter_2_voltage": {
+      "label": "Вход / Выход",
+      "value": "4.5 — 75 В",
+      "desc": "Входные сети: «E» (4.5..15В), «A» (9..36В), «B» (18..75В). Выход: 3.3, 5, 9, 12, 15, 24, 27, 48 В. Параллельное и последовательное подключение."
+    },
+    "chapter_3_durability": {
+      "label": "Температура",
+      "value": "-60..+125°C",
+      "desc": "Широкий температурный диапазон. Разработка и производство в РФ."
+    },
+    "chapter_4_formfactor": {
+      "label": "Габариты",
+      "value": "32×19×7.5",
+      "desc": "pin-to-pin замена MGDM-4 Gaia Converter. Безупречная интеграция. Гарантия 15 лет."
+    }
+  },
+  "accessibility_and_fallback": {
+    "prefers_reduced_motion": "CRITICAL: If CSS media query '(prefers-reduced-motion: reduce)' is true: Disable Lenis. Destroy GSAP ScrollTriggers. Hide Three.js canvas. Show a static high-res image of the converter. Stack the text sections sequentially with normal CSS scrolling. No line drawing, no flying elements.",
+    "semantics": "Use semantic <section> tags. Ensure every callout card is reachable via 'Tab' (add tabindex='0' if not naturally focusable, but prefer natural document flow).",
+    "testing": "Add data-testid attributes to all sections and cards (e.g., data-testid='chapter-1-power-card')."
+  },
+  "universal_guidelines_for_main_agent": [
+    "You are building a Vanilla JS Vite project. DO NOT output React code. DO NOT try to import Shadcn UI components.",
+    "Avoid the generic 'AI slop' aesthetic. No generic centered layouts. The design relies on the tension between the floating 3D model and the rigid, asymmetrical glass data cards.",
+    "Do not use transparent backgrounds under text unless there is a heavy backdrop-blur applied.",
+    "Data must be explicitly mapped exactly as provided in 'content_mapping'. Do not invent new features or specs.",
+    "Ensure 'Rantech Orange' (#EA5B29) is the only bright color used, keeping the rest of the UI monochrome/glass.",
+    "Always use 'px' or 'rem' for precise technical layouts. Draw connector lines using raw SVG paths and update 'd' attributes via JS based on Three.js projections."
+  ]
+}

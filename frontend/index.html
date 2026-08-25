@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#070709" />
+    <title>ПНДВ4 — РАНТЕХ · DC/DC преобразователь</title>
+    <meta name="description" content="ПНДВ4 (РТШН.436630.003 ТУ) — высоконадёжные DC/DC преобразователи РАНТЕХ для ответственных сфер применения. Мощность 4 Вт, вход 4,5…75 В, КПД до 80%, −60…+125 °C." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Unbounded:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- CSS fallback fog composition (no-webgl / reduced-motion) -->
+    <div class="bg-fallback" aria-hidden="true">
+      <div class="bg-dots"></div>
+      <div class="bg-glow"></div>
+      <div class="bg-vignette"></div>
+    </div>
+
+    <!-- Decorative WebGL canvas -->
+    <canvas id="webgl" aria-hidden="true"></canvas>
+
+    <!-- Decorative connector branches overlay -->
+    <svg id="branches" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"></svg>
+
+    <!-- Fixed chrome -->
+    <header class="site-header" data-testid="site-header">
+      <a class="brand" href="https://runtch.ru/" target="_blank" rel="noopener" aria-label="РАНТЕХ — на главный сайт" data-testid="brand-link">
+        <img class="brand-logo" src="/img/logo_icon.png" alt="" width="67" height="62" />
+        <span class="brand-name">РАНТЕХ</span>
+      </a>
+      <p class="brand-model">ПНДВ4 · РТШН.436630.003&nbsp;ТУ</p>
+    </header>
+
+    <div class="hud" aria-hidden="true" data-testid="hud">
+      <span class="hud-index" data-hud-index>00</span>
+      <span class="hud-sep">/</span>
+      <span class="hud-total">05</span>
+      <div class="hud-track"><span class="hud-bar" data-hud-bar></span></div>
+    </div>
+
+    <main id="scene-content">
+      <!-- CHAPTER 0 — HERO -->
+      <section class="chapter chapter--hero" id="section-hero" data-chapter="0" data-testid="section-hero">
+        <div class="hero-inner container">
+          <p class="hero-eyebrow reveal-line"><span>Высоконадёжные DC/DC преобразователи</span></p>
+          <h1 class="hero-title" data-testid="hero-title">
+            <span class="reveal-line"><span>ПНДВ4</span></span>
+          </h1>
+          <p class="hero-sub reveal-line"><span>Для ответственных сфер применения. Разработка и производство в&nbsp;РФ.</span></p>
+          <img class="static-product" src="/img/p4.png" alt="DC/DC преобразователь ПНДВ4 РАНТЕХ" data-testid="static-product" />
+          <p class="scroll-hint reveal-line" data-testid="scroll-hint"><span>Листайте, чтобы изучить модуль</span></p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 1 — POWER -->
+      <section class="chapter" id="section-power" data-chapter="1" data-anchor="power" data-testid="section-power">
+        <article class="callout callout--bl" data-card="power" tabindex="0" data-testid="card-power">
+          <p class="callout-index">01</p>
+          <p class="callout-label">Мощность</p>
+          <p class="callout-value">4&nbsp;<span>Вт</span></p>
+          <p class="callout-desc">Типовой КПД до&nbsp;80%. Корректная работа в&nbsp;режиме холостого хода. Полный комплекс встроенных защит.</p>
+        </article>
+      </section>
+
+      <!-- CHAPTER 2 — VOLTAGE -->
+      <section class="chapter" id="section-voltage" data-chapter="2" data-anchor="voltage" data-testid="section-voltage">
+        <article class="callout callout--tr" data-card="voltage" tabindex="0" data-testid="card-voltage">
+          <p class="callout-index">02</p>
+          <p class="callout-label">Вход / Выход</p>
+          <p class="callout-value">4,5–75&nbsp;<span>В</span></p>
+          <p class="callout-desc">Входные сети «E» 4,5…15&nbsp;В · «A» 9…36&nbsp;В · «B» 18…75&nbsp;В. Выход: 3,3 · 5 · 9 · 12 · 15 · 24 · 27 · 48&nbsp;В. Параллельное и&nbsp;последовательное подключение.</p>
+        </article>
+      </section>
+
+      <!-- CHAPTER 3 — THERMAL -->
+      <section class="chapter" id="section-thermal" data-chapter="3" data-anchor="thermal" data-testid="section-thermal">
+        <article class="callout callout--cl" data-card="thermal" tabindex="0" data-testid="card-thermal">
+          <p class="callout-index">03</p>
+          <p class="callout-label">Рабочая температура</p>
+          <p class="callout-value">−60…+125&nbsp;<span>°C</span></p>
+          <p class="callout-desc">Широкий температурный диапазон. Несколько вариантов входной сети. Гарантия 15&nbsp;лет.</p>
+        </article>
+      </section>
+
+      <!-- CHAPTER 4 — FORM FACTOR -->
+      <section class="chapter" id="section-form" data-chapter="4" data-anchor="form" data-testid="section-form">
+        <article class="callout callout--br" data-card="form" tabindex="0" data-testid="card-form">
+          <p class="callout-index">04</p>
+          <p class="callout-label">Габариты</p>
+          <p class="callout-value">32×19×7,5&nbsp;<span>мм</span></p>
+          <p class="callout-desc">Pin-to-pin замена преобразователей MGDM-4 Gaia&nbsp;Converter. Компактный модульный корпус.</p>
+        </article>
+      </section>
+
+      <!-- CHAPTER 5 — OUTRO -->
+      <section class="chapter chapter--outro" id="section-outro" data-chapter="5" data-testid="section-outro">
+        <div class="outro-inner container">
+          <p class="outro-value" data-testid="outro-value">15 <span>лет</span></p>
+          <p class="outro-label">гарантии на&nbsp;каждый модуль</p>
+          <a class="outro-cta" href="https://runtch.ru/catalog/dc-dc-preobrazovateli/" target="_blank" rel="noopener" data-testid="outro-cta">
+            Каталог DC/DC преобразователей
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
